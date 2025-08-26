@@ -1,12 +1,11 @@
-# Debian-база аддона Home Assistant (есть apt + s6)
-ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base-debian:bookworm
+ARG BUILD_FROM
 FROM openalpr/openalpr:latest AS alprsrc
 FROM ${BUILD_FROM}
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV LANG=C.UTF-8
 
-# Копируем alpr и runtime_data из официального образа OpenALPR
+# Копируем alpr и runtime_data
 COPY --from=alprsrc /usr/bin/alpr /usr/bin/alpr
 COPY --from=alprsrc /usr/share/openalpr /usr/share/openalpr
 
@@ -16,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pip3 install --no-cache-dir flask && \
     rm -rf /var/lib/apt/lists/*
 
-# наш сервер и s6-служба
+# Наш сервер и s6-служба
 COPY server.py /opt/server.py
 COPY rootfs/ /
 
