@@ -1,4 +1,2 @@
-
 #!/usr/bin/with-contenv bash
-# s6 запускает этот скрипт как главный процесс аддона
 exec /usr/bin/python3 -u /opt/server.py
