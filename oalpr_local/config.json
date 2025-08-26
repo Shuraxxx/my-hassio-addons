@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "slug": "oalpr_local",
   "description": "Local license plate recognition using OpenALPR CLI with simple HTTP API",
-  "arch": ["amd64", "aarch64"],
+  "arch": ["amd64"],
   "startup": "services",
   "boot": "auto",
   "host_network": true,
