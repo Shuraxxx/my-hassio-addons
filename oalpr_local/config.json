@@ -1,0 +1,13 @@
+{
+  "name": "OpenALPR Local",
+  "version": "1.0.0",
+  "slug": "oalpr_local",
+  "description": "Local license plate recognition using OpenALPR CLI with simple HTTP API",
+  "arch": ["amd64", "aarch64"],
+  "startup": "services",
+  "boot": "auto",
+  "host_network": true,
+  "ingress": false,
+  "webui": "http://[HOST]:[PORT:5000]",
+  "schema": {}
+}
